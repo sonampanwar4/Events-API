@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from models import db, Event, RSVP, User
-from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt, verify_jwt_in_request
+from models import db, Event, RSVP
+from flask_jwt_extended import get_jwt_identity, get_jwt, verify_jwt_in_request
 from flask_jwt_extended.exceptions import NoAuthorizationError
 
 rsvps_bp = Blueprint('rsvps', __name__, url_prefix='/api/rsvps')
@@ -85,4 +85,3 @@ def get_rsvps(event_id):
             'total': len(rsvps)
         }
     }), 200
-
